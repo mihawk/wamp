@@ -1,0 +1,2 @@
+-module(puppy, [Id, Name, BreedId]).
+-belongs_to(breed). 

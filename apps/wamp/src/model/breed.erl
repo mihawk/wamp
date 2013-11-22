@@ -1,0 +1,2 @@
+-module(breed, [Id, Name]).
+-has({puppies, many}). 
