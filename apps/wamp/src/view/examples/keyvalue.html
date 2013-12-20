@@ -23,9 +23,9 @@
 
             var wsuri;
             if (window.location.protocol === "file:") {
-               wsuri = "ws://localhost:8080/ws";
+               wsuri = "ws://localhost:8001/ws";
             } else {
-               wsuri = "ws://" + window.location.hostname + ":8080/ws";
+               wsuri = "ws://" + window.location.hostname + ":8001/ws";
             }
 
             // connect to WAMP server
@@ -38,7 +38,7 @@
                   log("Connected to " + wsuri);
 
                   // establish a prefix, so we can abbreviate procedure URIs ..
-                  sess.prefix("keyvalue", "http://example.com/simple/keyvalue#");
+                  sess.prefix("keyvalue", "http://example.com/wamp/keyvalue#");
                },
 
                // WAMP session is gone

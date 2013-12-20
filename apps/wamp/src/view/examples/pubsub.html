@@ -11,7 +11,7 @@
          window.onload = function() {
 
             // connect to WAMP server
-            ab.connect("ws://localhost:9000",
+            ab.connect("ws://localhost:8001",
 
                // WAMP session was established
                function (session) {
@@ -19,7 +19,7 @@
                   sess = session;
                   console.log("Connected!");
 
-                  sess.prefix("event", "http://example.com/event/");
+                  sess.prefix("event", "http://example.com/wamp/event/");
                   sess.subscribe("event:simple", onEvent);
                   sess.subscribe("event:simple-foobar", onEvent);
                   sess.subscribe("event:foobar1", onEvent);

@@ -13,9 +13,9 @@
 
             var wsuri;
             if (window.location.protocol === "file:") {
-               wsuri = "ws://localhost:9000";
+               wsuri = "ws://localhost:8001";
             } else {
-               wsuri = "ws://" + window.location.hostname + ":9000";
+               wsuri = "ws://" + window.location.hostname + ":8001";
             }
 
             // connect to WAMP server
@@ -27,7 +27,7 @@
                   sess = session;
 
                   console.log("Connected to " + wsuri);
-                  sess.subscribe("http://dirwatch.autobahn.ws#filesystemEvent",
+                  sess.subscribe("http://localhost:8001/wamp/simple#filesystemEvent",
                      function (topic, event) {
                         console.log(event);
                      });
