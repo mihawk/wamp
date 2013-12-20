@@ -61,7 +61,7 @@
                   sess = session;
                   console.log("Connected to " + wsuri);
 
-                  sess.prefix("calculator", "http://localhost:8001/simple/calculator#");
+                  sess.prefix("calculator", "http://localhost:8001/wamp/simple/calculator#");
                },
 
                // WAMP session is gone
@@ -114,10 +114,10 @@
                arg.num = $('#calcdisplay').html();
             }
 
-            sess.call("calculator:calc", arg).then(function (res) { $('#calcdisplay').html(res); },
-                                                   function (res) { alert("Error (" + res + ")"); });
-
-            clearFirst = true;
+         sess.call("calculator:calc", arg).then(
+              function (res) { $('#calcdisplay').html(res); },
+              function (res) { alert("Error (" + res + ")"); });
+              clearFirst = true; 
          }
      </script>
    </head>
