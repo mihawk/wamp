@@ -26,7 +26,7 @@
          // connect to Autobahn.ws
          function connect() {
 
-            var wsuri = "ws://localhost:9000";
+            var wsuri = "ws://localhost:8001";
 
             ab.connect(wsuri,
 
@@ -96,7 +96,7 @@
             }, ab.log);
          }
 
-         var myTopic = "http://example.com/topics/mytopic1";
+         var myTopic = "http://example.com/wamp/topics/mytopics1";
 
          function onAuth(permissions) {
             ab.log("authenticated!", JSON.stringify(permissions));
