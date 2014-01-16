@@ -1,4 +1,4 @@
--module(wamp_simple_calculator_wamp, [Req, SessionId]).
+-module(wamp_simple_calculator_wamp, [Req, SessionId, ReqCtx]).
 
 -export([calc/1]).
 -export([calc/2]).
