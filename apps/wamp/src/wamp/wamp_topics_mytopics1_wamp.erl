@@ -11,21 +11,21 @@
 
 
 event(Topic, Event) ->
-    %%% do wahtever ...
+    %%% do whatever ...
     {ok, [{topic, Topic},{event, Event}]}.
 
 subscribe(Topic) ->
     error_logger:info_msg("Subscribe Topic ~p~n", [Topic]),
-    %%% do wahtever ...
+    %%% do whatever ...
     {ok, [{topic, Topic},{since, now}]}. 
 
 unsubscribe(Topic) ->
-    %%% do wahtever ...
+    %%% do whatever ...
     error_logger:info_msg("Unsubscribe Topic ~p~n", [Topic]),
     {ok, Topic}. 
 
 publish(Topic, Event) ->
-    %%% do wahtever ...
+    %%% do whatever ...
     error_logger:info_msg("Publish Topic ~p~n"
                           "Event ~p~n", 
                           [Topic, Event]),
@@ -33,7 +33,7 @@ publish(Topic, Event) ->
    {ok, [{topic, Topic}, {event, Event}]}.
 
 publish(Topic, Event, true) ->
-    %%% do wahtever ...
+    %%% do whatever ...
     error_logger:info_msg("Publish ExcludeMe Topic ~p~n"
                           "Event ~p~n", 
                           [
@@ -43,11 +43,11 @@ publish(Topic, Event, true) ->
    {ok, [{topic, Topic}, {event, Event}, {exclude_me, true}]};
 
 publish(Topic, Event, Exclude) ->
-    %%% do wahtever ...
+    %%% do whatever ...
    {ok, [{topic, Topic}, {event, Event}, {exclude, Exclude}]}. 
 	
 publish(Topic, Event, Exclude, Eligible) ->
-    %%% do wahtever ...
+    %%% do whatever ...
     error_logger:info_msg("Publish ExcludeMe With Eligible List Topic ~p~n"
                           "Event ~p~n"
                           "Exclude ~p~n"
