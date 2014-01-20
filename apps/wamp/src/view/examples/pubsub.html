@@ -2,8 +2,8 @@
  <html>
    <head>
       <!-- include AutobahnJS .. that's all you need -->
-      <script src="http://autobahn.s3.amazonaws.com/js/autobahn.min.js"></script>
       <script src="/static/jquery.min.js"></script>
+      <script src="/static/js/autobahn.js"></script>
 
       <script>
         
@@ -11,22 +11,27 @@
          var sess;
          $(document).ready(init);
 
+
       function init() {
           if(!("WebSocket" in window)){  
               $('#status').append('<p><span style="color: red;">websockets are not supported </span></p>');
               $("#navigation").hide();  
           } else {
+
               $('#status').append('<p><span style="color: green;">websockets are supported </span></p>');
-              connect();
+
           };
-              $("#connected").hide();         
-              $("#content").hide();         
+              //$("#connected").hide();         
+              //$("#content").hide();         
       };
+
+
 
          window.onload = function() {
 
+         
             // connect to WAMP server
-            ab.connect("ws://localhost:8001",
+            ab.connect("ws://localhost:8001", 
 
                // WAMP session was established
                function (session) {
@@ -49,6 +54,7 @@
                   alert(reason);
                }
             );
+
          };
 
          function onEvent(topicUri, event) {                      
@@ -61,7 +67,7 @@
          );
 
          }
-
+         
          function showScreen(where, txt) { 
             where.prepend('<p>' + txt + '</p>');
          };
@@ -101,6 +107,12 @@
               showScreen( $('#sending'),'sending: ' + txt); 
       };
 
+      function sendTxtExcludeMe() {
+              txt = $("#send_txt").val();
+              sess.publish("event:chatroom", {message: txt}, true);
+              showScreen( $('#sending'),'sending: ' + txt); 
+      };
+
       function unsubscribe() {
               sess.unsubscribe("event:chatroom");
       };
@@ -126,6 +138,7 @@
         <p>
           <label>message:</label><input type='text' id="send_txt" value=></input>
           <button type="button" onclick="sendTxt();">send</button>
+          <button type="button" onclick="sendTxtExcludeMe();">exclude me</button>
         </p>
       </div>
 
